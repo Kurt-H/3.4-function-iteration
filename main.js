@@ -11,10 +11,10 @@ I'll accept either $23.63 or $23.62
 
 (function(){
 
-var sumPrices = items.reduce(function(previousValue, productPrice){
+var sumPrices = items.reduce(function(previousValue, product){
   //console.log(previousValue);
   //console.log(productPrice.price);
-  return previousValue + productPrice.price;
+  return previousValue + product.price;
 },0);
 //console.log(sumPrices);
  var avgPrice  = sumPrices/items.length;
@@ -46,7 +46,7 @@ var sumPrices = items.reduce(function(previousValue, productPrice){
    }
  ]
  */
-
+(function(){
  var prod1418 = items.filter(function(product){
   return product.price > 14 && product.price < 18;
  });
@@ -57,7 +57,7 @@ var sumPrices = items.reduce(function(previousValue, productPrice){
  //console.log(prod1418[1].title);
  //console.log(prod1418[2].title);
 
-
+/*
 function listBuild(){
  var prodList = "";
  var i;
@@ -68,20 +68,24 @@ function listBuild(){
  return '"Items that cost between $14.00 USD and $18.00 USD:" ' + prodList;
 }
 console.log(listBuild());
-
-
+*/
+ }());
 
 
 /*
 3. Show me how find the item with a "GBP" currency code and print its name and price. Please console.log the one you find.
   1970s Schlitz Malt Liquor Glass Beer Pitcher costs £18
 */
+(function(){
 
-var prodUKSearch = items.filter(function(product){
- var prodUK = product.currency_code ==='GBP';
- return prodUK;
+var productUKSearch = items.filter(function(product){
+
+ var productUK = product.currency_code ==='GBP';
+
+ return productUK;
 });
-console.log(prodUKSearch);
+console.log(productUKSearch);
+ }());
 /*
 4. Show me how to find which items are made of wood. Please console.log the ones you find.
   SALE Mid Century Siesta Ware White Mug with Anchor - Set of 3 is made of wood.
@@ -91,15 +95,18 @@ console.log(prodUKSearch);
   Engraved Pocket Knife, Personalized Groomsmen Gift, Ring Bearer Gift, Graduation Gift, 4 Knives is made of wood.
 */
 
-/*
---need to search the arrays 'materials' inside the product objects inside array 'items'
-var woodProdSearch = items.filter(function(product){
-  var woodProd = product.materials[i] === 'wood';
-  return woodProd;
-});
-console.log(woodProdSearch);
-*/
+(function(){
+//need to search the arrays 'materials' inside the product objects inside array 'items'
+  var woodProductSearch = items.filter(function(product){
+    var woodProducts = (product.materials).indexOf("wood") >= 0;
 
+    return woodProducts;
+  }
+);
+
+console.log(woodProductSearch);
+
+}());
 /*
 5. Show me how to find which items are made of eight or more materials. Please console.log the ones you find.
   Qty of 2 Groomsmen Gift - Stainless Steel Personalized Bottle Opener - NO Capcatcher has 9 materials:
@@ -129,13 +136,14 @@ console.log(woodProdSearch);
   the three broomsticks glass
   personalized harry potter glass
 */
+(function(){
+
 var highCountMaterials= items.filter(function(product){
  return (product.materials).length > 8;
 });
 
-
 console.log(highCountMaterials);
-
+ }());
 /*
 6. Show me how to calculate how many items were made by their sellers
 18 were made by their sellers
