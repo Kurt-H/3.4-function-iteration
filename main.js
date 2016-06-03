@@ -72,6 +72,12 @@ console.log(listBuild());
 3. Show me how find the item with a "GBP" currency code and print its name and price. Please console.log the one you find.
   1970s Schlitz Malt Liquor Glass Beer Pitcher costs £18
 */
+
+var prodUKSearch = items.filter(function(product){
+ var prodUK = product.currency_code ==='GBP';
+ return prodUK;
+});
+console.log(prodUKSearch);
 /*
 4. Show me how to find which items are made of wood. Please console.log the ones you find.
   SALE Mid Century Siesta Ware White Mug with Anchor - Set of 3 is made of wood.
