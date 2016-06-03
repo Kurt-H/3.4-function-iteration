@@ -9,6 +9,8 @@ I'll accept either $23.63 or $23.62
 
 //console.log(items);
 
+(function(){
+
 var sumPrices = items.reduce(function(previousValue, productPrice){
   //console.log(previousValue);
   //console.log(productPrice.price);
@@ -18,6 +20,8 @@ var sumPrices = items.reduce(function(previousValue, productPrice){
  var avgPrice  = sumPrices/items.length;
  var avgPriceR = avgPrice.toFixed(2);
  console.log("$ " + avgPriceR);
+
+ }());
 
 // var prices = items.filter(function(product){ //sample code for .filter() reference
 //   return product.price > 50;
@@ -86,6 +90,16 @@ console.log(prodUKSearch);
   Magnetic Wall Mount Bottle Opener Barware Set - Stainless Steel or Black - Personalized if you like! is made of wood.
   Engraved Pocket Knife, Personalized Groomsmen Gift, Ring Bearer Gift, Graduation Gift, 4 Knives is made of wood.
 */
+
+/*
+--need to search the arrays 'materials' inside the product objects inside array 'items'
+var woodProdSearch = items.filter(function(product){
+  var woodProd = product.materials[i] === 'wood';
+  return woodProd;
+});
+console.log(woodProdSearch);
+*/
+
 /*
 5. Show me how to find which items are made of eight or more materials. Please console.log the ones you find.
   Qty of 2 Groomsmen Gift - Stainless Steel Personalized Bottle Opener - NO Capcatcher has 9 materials:
@@ -115,12 +129,29 @@ console.log(prodUKSearch);
   the three broomsticks glass
   personalized harry potter glass
 */
+var highCountMaterials= items.filter(function(product){
+ return (product.materials).length > 8;
+});
+
+
+console.log(highCountMaterials);
+
 /*
 6. Show me how to calculate how many items were made by their sellers
 18 were made by their sellers
 */
 
+(function(){
 
+var selfMade= items.filter(function(product){
+ return product.who_made == "i_did";
+});
+console.log(selfMade);
+var numSelfMade = selfMade.length;
+var message = numSelfMade + " were made by their sellers";
+console.log(message);
+
+}());
 
 
 
