@@ -19,23 +19,10 @@ var sumPrices = items.reduce(function(previousValue, productPrice){
  var avgPriceR = avgPrice.toFixed(2);
  console.log("$ " + avgPriceR);
 
-
-
-//var n = num.toFixed(2);
-
-
-
-
-
-
-// var prices = items.filter(function(product){
+// var prices = items.filter(function(product){ //sample code for .filter() reference
 //   return product.price > 50;
 // });
 // console.log(prices);
-
-
-
-
 
 /*
 2. Show me how to get an array of items that cost between $14.00 and $18.00 USD
@@ -53,7 +40,34 @@ var sumPrices = items.reduce(function(previousValue, productPrice){
       title: "Hand Painted Colorful Feather Glass",
       ...
    }
- ]*/
+ ]
+ */
+
+ var prod1418 = items.filter(function(product){
+  return product.price > 14 && product.price < 18;
+ });
+
+
+ console.log(prod1418);
+ //console.log(prod1418[0].title);
+ //console.log(prod1418[1].title);
+ //console.log(prod1418[2].title);
+
+
+function listBuild(){
+ var prodList = "";
+ var i;
+ for (i = 0; i< prod1418.length; i++){
+
+   prodList += prod1418[i].title + "; ";
+ }
+ return '"Items that cost between $14.00 USD and $18.00 USD:" ' + prodList;
+}
+console.log(listBuild());
+
+
+
+
 /*
 3. Show me how find the item with a "GBP" currency code and print its name and price. Please console.log the one you find.
   1970s Schlitz Malt Liquor Glass Beer Pitcher costs £18
