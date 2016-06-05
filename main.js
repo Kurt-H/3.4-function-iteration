@@ -19,7 +19,7 @@ var sumPrices = items.reduce(function(previousValue, product){
 //console.log(sumPrices);
  var avgPrice  = sumPrices/items.length;
  var avgPriceR = avgPrice.toFixed(2);
- console.log("$ " + avgPriceR);
+ console.log("The average price is $" + avgPriceR);
 
  }());
 
@@ -49,26 +49,12 @@ var sumPrices = items.reduce(function(previousValue, product){
 (function(){
  var prod1418 = items.filter(function(product){
   return product.price > 14 && product.price < 18;
- });
-
-
+});
  console.log(prod1418);
  //console.log(prod1418[0].title);
  //console.log(prod1418[1].title);
  //console.log(prod1418[2].title);
 
-/*
-function listBuild(){
- var prodList = "";
- var i;
- for (i = 0; i< prod1418.length; i++){
-
-   prodList += prod1418[i].title + "; ";
- }
- return '"Items that cost between $14.00 USD and $18.00 USD:" ' + prodList;
-}
-console.log(listBuild());
-*/
  }());
 
 
@@ -160,6 +146,11 @@ var message = numSelfMade + " were made by their sellers";
 console.log(message);
 
 }());
+
+// Note the difference between the square and curly braces. The square braces indicate
+// the start and end of the array, and the curly braces indicate the start and end of objects.
+// This array contains two different objects.
+
 
 
 
